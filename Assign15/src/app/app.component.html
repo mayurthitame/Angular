@@ -1,0 +1,77 @@
+
+  <div class="header">
+    <h1 id="mb-3">Contact Our</h1>
+
+    <img src="../assets/Img/images.jpg" alt="logo" />
+    <h4 id="mb-1">Customer support center</h4>
+  </div>
+
+<div class="container-fluid px-1 py-5 mx-auto">
+  <div class="row d-flex justify-content-center">
+      <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+          <h3>Contact Information</h3>
+          <p class="blue-text">Please fill out contact information below</p>
+          <div class="card">
+              <!-- <h5 class="text-center mb-4">Powering world-class companies</h5> -->
+              <form [formGroup]="MarvellousForm" (ngSubmit)="SubmitForm(MarvellousForm.value)">
+                  <div class="row justify-content-between text-left">
+                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">First name<span > *</span></label> <input [class.is-invalid] = "MarvellousForm.get('Firstname')?.invalid" type="text" id="fname" name="fname" placeholder="Enter your first name" formControlName="Firstname">
+                        <small [class.d-none]="MarvellousForm.get('Firstname')?.valid" class="text-danger">Firstname is required</small> </div>
+                      
+                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Last name<span class="text-danger"> *</span></label> <input type="text" id="lname" name="lname" placeholder="Enter your last name" onblur="validate(2)" formControlName="Lastname"> 
+                      </div>
+                  </div>
+                  <div class="row justify-content-between text-left">
+                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Email<span class="text-danger"> *</span></label> <input [class.is-invalid] = "MarvellousForm.get('Email')?.invalid" type="text" id="email" name="email" placeholder=""  formControlName="Email">
+                        <small [class.d-none]="MarvellousForm.get('Email')?.valid" class="text-danger">Provide valid email</small>  
+                      </div>
+      
+                  </div>
+                  <div class="row justify-content-between text-left">
+                    <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Phone<span class="text-danger"> *</span></label> <input [class.is-invalid] = "MarvellousForm.get('Phone')?.invalid" type="text" id="phone" name="job" placeholder="" formControlName="Phone">
+                        <small [class.d-none]="MarvellousForm.get('Phone')?.valid" class="text-danger">Phone is required</small> 
+                       </div>
+                </div>
+                <div class="row justify-content-between text-left">
+                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">city name<span > *</span></label> <input type="text" id="city" name="city" placeholder="Enter city name" formControlName="City">
+                  
+                </div>
+
+
+                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">state name<span class="text-danger"> *</span></label> <select id="state" formControlName="State"> 
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Gujrat">Gujrat</option>
+                  <option value="Karnataka">Uttar Pradesh</option>
+                  </select>
+                
+                </div>
+                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">zipcode<span class="text-danger"> *</span></label> <input type="text" id="zipcode" name="zipcode" placeholder="Enter your last name" formControlName="zipcode"> 
+            
+                </div>
+              </div>
+                  <!-- <div class="row justify-content-between text-left">
+                      <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Address<span class="text-danger"> *</span></label> <input [class.is-invalid] = "MarvellousForm.get('Address')?.invalid" type="text" id="address" name="job" placeholder="" onblur="validate(5)" formControlName="Address">
+                        <small [class.d-none]="MarvellousForm.get('Address')?.valid" class="text-danger">Address is required</small> 
+                      </div>
+                  </div>
+                   -->
+             
+                <!-- <div class="row justify-content-between text-left">
+                    <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">State<span class="text-danger"> *</span></label> <select  id="address" name="job" placeholder="" onblur="validate(5)" formControlName="State">
+                      <option value="Maharashtra">Maharashtra</option>
+                      <option value="Gujrat">Maharashtra1</option>
+                      <option value="Up">Maharashtra2</option>
+
+                    </div>
+                </div> -->
+                  <div class="row justify-content-center">
+                      <div class="form-group col-sm-6"> <button [disabled]="MarvellousForm.invalid"  [style.color]="'white'" [style.background-color]="MarvellousForm.invalid ? 'gray' : 'green'" type="submit" (click)="send()" class="btn-block btn-primary">submit Form</button> 
+                      </div>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+<app-details [Data] = "MarvellousForm.value"></app-details>
+<router-outlet></router-outlet>
